@@ -4,16 +4,25 @@ import java.util.*
 fun main() {
 //    KtTicket().totalTicket()
         val scanner=Scanner(System.`in`)
-        print ("Please enter number of tickets:")
-        var countAll=scanner.nextInt()
-        print ("How many round-trip tickets:")
-        var countR=scanner.nextInt()
+        var countAll=0
 
-        val k=KtTicket(1000,2000, countAll ,countR )
+    while (countAll != -1) {
+        print("Please enter number of tickets:")
+        countAll = scanner.nextInt()
+
+        if (countAll == -1){
+            print("Thanks for buying! Bye!Bye!")
+            break
+        }
+
+        print("How many round-trip tickets:")
+        var countR = scanner.nextInt()
+
+        val k = KtTicket(1000, 2000, countAll, countR)
 //        k.totalTicket()
         k.totalPrice()
         k.print()
-
+    }
 }
 
 class KtTicket (var onetrip: Int, var roundtrip:Int, var countAll:Int, var countR:Int) {
